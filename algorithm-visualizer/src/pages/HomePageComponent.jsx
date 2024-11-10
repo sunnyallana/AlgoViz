@@ -60,7 +60,8 @@ const HomePage = () => {
             </div>
           </motion.div>
 
-          <motion.div variants={itemAnimation} className="mt-12">
+          {/* Horizontal alignment of buttons */}
+          <motion.div variants={itemAnimation} className="mt-12 flex justify-center space-x-6">
             {/* Link component to scroll to the Visualizer section */}
             <Link
               to="visualize" // Target ID of the section to scroll to
@@ -70,6 +71,16 @@ const HomePage = () => {
             >
               Start Visualizing
             </Link>
+
+            {/* New Button to View GitHub Repo */}
+            <a
+              href="https://github.com/sunnyallana/algorithm-visualizer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-full font-semibold transition-all cursor-pointer"
+            >
+              View GitHub Repo
+            </a>
           </motion.div>
         </motion.div>
       </section>
@@ -85,9 +96,7 @@ const HomePage = () => {
           <h2 className="text-4xl font-bold mb-8 text-center text-gray-100">
             Visualizations
           </h2>
-          <div className="bg-gray-800 p-8 rounded-lg">
-            <VisualizerComponent />
-          </div>
+          <VisualizerComponent />
         </motion.div>
       </section>
 
@@ -99,7 +108,15 @@ const HomePage = () => {
           transition={{ delay: 0.5 }}
           className="text-gray-400"
         >
-          Designed & Developed by Sunny Shaban Ali
+          Designed & Developed by{' '}
+          <a
+            href="https://www.linkedin.com/in/sunnyallana"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-purple-500 hover:text-purple-700 font-semibold"
+          >
+            Sunny Shaban Ali
+          </a>
         </motion.p>
       </footer>
     </div>
