@@ -60,9 +60,7 @@ const HomePage = () => {
             </div>
           </motion.div>
 
-          {/* Horizontal alignment of buttons */}
           <motion.div variants={itemAnimation} className="mt-12 flex justify-center space-x-6">
-            {/* Link component to scroll to the Visualizer section */}
             <Link
               to="visualize" // Target ID of the section to scroll to
               smooth={true}   // Enable smooth scrolling
@@ -72,7 +70,6 @@ const HomePage = () => {
               Start Visualizing
             </Link>
 
-            {/* New Button to View GitHub Repo */}
             <a
               href="https://github.com/sunnyallana/algorithm-visualizer"
               target="_blank"
@@ -101,7 +98,7 @@ const HomePage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 py-6 text-center">
+      {/* <footer className="bg-gray-900 py-6 text-center">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -118,7 +115,7 @@ const HomePage = () => {
             Sunny Shaban Ali
           </a>
         </motion.p>
-      </footer>
+      </footer> */}
     </div>
   );
 };

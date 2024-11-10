@@ -3,7 +3,15 @@ import math
 import os
 
 def generate_closest_pair_input(num_points):
-    points = [(random.randint(0, 250), random.randint(0, 120)) for _ in range(num_points)]
+    x_min, x_max = 0, 250
+    y_min, y_max = 0, 120
+    points = []
+    
+    for _ in range(num_points):
+        x = random.randint(x_min, x_max)
+        y = random.randint(y_min, y_max)
+        points.append((x, y))
+    
     return points
 
 def generate_karatsuba_input():
