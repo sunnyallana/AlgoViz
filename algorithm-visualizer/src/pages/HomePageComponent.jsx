@@ -70,14 +70,14 @@ const HomePage = () => {
               Start Visualizing
             </Link>
 
-            <a
+{/*             <a
               href="https://github.com/sunnyallana/algorithm-visualizer"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-purple-600 hover:bg-purple-700 rounded-full font-semibold transition-all cursor-pointer"
             >
               View GitHub Repo
-            </a>
+            </a> */}
           </motion.div>
         </motion.div>
       </section>
