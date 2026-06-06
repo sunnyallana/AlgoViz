@@ -1,6 +1,6 @@
 <div align="center">
 
-# AlgoViz — Interactive Algorithm Visualizer
+# AlgoViz: Interactive Algorithm Visualizer
 
 ### *See algorithms think.*
 
