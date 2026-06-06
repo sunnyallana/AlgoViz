@@ -1,3 +1,131 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-abyss text-fg font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.4);
+    color: #fff;
+  }
+
+  /* Visible, consistent keyboard focus */
+  :focus-visible {
+    outline: 2px solid #8b5cf6;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Slim custom scrollbars that match the surface palette */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2c3a5c transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #2c3a5c;
+    border-radius: 9999px;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: #3d4f7c;
+  }
+}
+
+@layer components {
+  /* ====== Pixel-perfect range sliders (track fill set via inline gradient) ====== */
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    /* 20px hit area, 6px visible track (the inline gradient is clipped to the
+       content box via fillStyle) */
+    height: 20px;
+    padding: 7px 0;
+    border-radius: 9999px;
+    background: #1e2740;
+    background-clip: content-box;
+    cursor: pointer;
+    transition: opacity 150ms ease;
+  }
+  .slider:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    background: #e8ecf4;
+    border: 2px solid #8b5cf6;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+  .slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.18);
+  }
+  .slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    background: #e8ecf4;
+    border: 2px solid #8b5cf6;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+  .slider::-moz-range-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 6px rgba(139, 92, 246, 0.18);
+  }
+  .slider::-moz-range-track {
+    height: 6px;
+    border-radius: 9999px;
+    background: transparent;
+  }
+
+  /* Number counters that never jiggle as digits change */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Soft panel card */
+  .card {
+    @apply bg-panel border border-line rounded-2xl shadow-card;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-bright via-brand to-accent;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
